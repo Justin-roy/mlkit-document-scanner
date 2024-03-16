@@ -17,7 +17,7 @@ final class MyApp extends StatefulWidget {
 
 final class _MyAppState extends State<MyApp> {
   final MlkitDocumentScannerPlugin _mlkitDocumentScannerPlugin =
-      MlkitDocumentScannerPlugin(token: Object());
+      MlkitDocumentScannerPlugin();
   late final Stream<List<Uint8List>?> _jpegDocumentStream;
   late final Stream<Uint8List?> _pdfDocumentStream;
 

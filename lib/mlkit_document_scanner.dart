@@ -2,12 +2,11 @@
 library mlkit_document_scanner;
 
 import 'package:flutter/services.dart';
-import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 /// This is the main plugin class. You should be able to instantiate the class,
 /// use the [startDocumentScanner] method to configure and start a scanner,
 /// and collect PDF scan data from the [scanResults] stream.
-final class MlkitDocumentScannerPlugin extends PlatformInterface {
+class MlkitDocumentScannerPlugin {
   static const _methodChannel =
       MethodChannel('mlkit_document_scanner_method_channel');
   static const _eventChannelJPEG =
@@ -15,7 +14,7 @@ final class MlkitDocumentScannerPlugin extends PlatformInterface {
   static const _eventChannelPDF =
       EventChannel('mlkit_document_scanner_event_channel_pdf');
 
-  MlkitDocumentScannerPlugin({required super.token});
+  MlkitDocumentScannerPlugin();
 
   /// This stream contains full stream of JPEG data that came from the scan.
   Stream<List<Uint8List>?> get jpegScanResults {
