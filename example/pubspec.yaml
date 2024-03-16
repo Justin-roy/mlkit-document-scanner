@@ -1,0 +1,21 @@
+name: mlkit_document_scanner_example
+description: "Demonstrates how to use the mlkit_document_scanner plugin."
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  mlkit_document_scanner:
+    path: ../
+  
+  syncfusion_flutter_pdfviewer: ^25.1.35
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
