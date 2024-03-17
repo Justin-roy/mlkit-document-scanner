@@ -24,8 +24,18 @@ final class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    init();
+  }
+
+  init() async {
     _jpegDocumentStream = _mlkitDocumentScannerPlugin.jpegScanResults;
     _pdfDocumentStream = _mlkitDocumentScannerPlugin.pdfScanResults;
+    await _mlkitDocumentScannerPlugin.startDocumentScanner(
+      maximumNumberOfPages: 1,
+      galleryImportAllowed: false,
+      scannerMode: MlkitDocumentScannerMode.full,
+      resultMode: DocumentScannerResultMode.both,
+    );
   }
 
   @override
@@ -36,16 +46,6 @@ final class _MyAppState extends State<MyApp> {
           minimum: const EdgeInsets.all(16.0),
           child: ListView(
             children: [
-              TextButton(
-                onPressed: () =>
-                    _mlkitDocumentScannerPlugin.startDocumentScanner(
-                  maximumNumberOfPages: 1,
-                  galleryImportAllowed: true,
-                  scannerMode: MlkitDocumentScannerMode.full,
-                  resultMode: DocumentScannerResultMode.both,
-                ),
-                child: const Text('Start scanner'),
-              ),
               StreamBuilder(
                 stream: _jpegDocumentStream,
                 builder: (BuildContext context,
