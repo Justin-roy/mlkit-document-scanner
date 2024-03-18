@@ -1,4 +1,4 @@
-package com.justin.mlkit_document_scanner
+package com.peteralexbizjak.mlkit_document_scanner
 
 // Miscellaneous
 internal const val LOGGING_TAG = "MLKit Document Scanner"

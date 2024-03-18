@@ -1,4 +1,4 @@
-package com.justin.mlkit_document_scanner
+package com.peteralexbizjak.mlkit_document_scanner
 
 enum class DocumentScannerResultMode {
     JPEG_PAGES,

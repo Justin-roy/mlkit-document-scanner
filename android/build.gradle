@@ -1,4 +1,4 @@
-group 'com.justin.mlkit_document_scanner'
+group 'com.peteralexbizjak.mlkit_document_scanner'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -30,7 +30,7 @@ apply plugin: 'kotlin-android'
 
 android {
     if (project.android.hasProperty("namespace")) {
-        namespace 'com.justin.mlkit_document_scanner'
+        namespace 'com.peteralexbizjak.mlkit_document_scanner'
     }
 
     compileSdk 34
