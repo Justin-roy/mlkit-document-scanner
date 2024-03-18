@@ -1,4 +1,4 @@
-package com.peteralexbizjak.mlkit_document_scanner
+package com.justin.mlkit_document_scanner
 
 import android.app.Activity
 import android.app.Activity.RESULT_OK
@@ -28,7 +28,6 @@ class MlkitDocumentScannerPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     private var eventSinkJPEG: EventChannel.EventSink? = null
     private var eventSinkPDF: EventChannel.EventSink? = null
     private var documentScannerLauncher: ActivityResultLauncher<IntentSenderRequest>? = null
-
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, METHOD_CHANNEL)
         eventChannelJPEG = EventChannel(flutterPluginBinding.binaryMessenger, EVENT_CHANNEL_JPEG)
@@ -59,7 +58,6 @@ class MlkitDocumentScannerPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
         Log.d(LOGGING_TAG, "onAttachedToActivity called")
         activity = binding.activity
-
         if (activity is ComponentActivity) {
             Log.d(LOGGING_TAG, "Initializing documentScannerLauncher")
             documentScannerLauncher = (activity as ComponentActivity)
@@ -83,6 +81,11 @@ class MlkitDocumentScannerPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
         if (call.method == START_DOCUMENT_SCANNER) {
             Log.d(LOGGING_TAG, call.arguments.toString())
+
+            if (activity == null) {
+                result.error("ERROR_CODE_ACTIVITY_NULL", "Activity is null", "activity not defined")
+                return
+            }
 
 
             // Construct document scanner

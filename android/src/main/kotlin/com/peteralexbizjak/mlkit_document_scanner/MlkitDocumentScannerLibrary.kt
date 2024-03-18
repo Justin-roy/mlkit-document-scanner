@@ -1,4 +1,4 @@
-package com.peteralexbizjak.mlkit_document_scanner
+package com.justin.mlkit_document_scanner
 
 import android.content.Intent
 import android.util.Log
@@ -50,6 +50,11 @@ internal class MlkitDocumentScannerLibrary {
         eventSinkJPEG: EventChannel.EventSink?,
         eventSinkPDF: EventChannel.EventSink?
     ) {
+        if (data == null) {
+            Log.e(LOGGING_TAG, "Intent data is null")
+            return
+        }
+
         GmsDocumentScanningResult.fromActivityResultIntent(data)?.also { result ->
             result.pages.let {
                 if (it.isNullOrEmpty()) {

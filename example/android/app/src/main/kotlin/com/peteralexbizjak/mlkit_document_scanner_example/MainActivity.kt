@@ -1,4 +1,4 @@
-package com.peteralexbizjak.mlkit_document_scanner_example
+package com.justin.mlkit_document_scanner_example
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 
